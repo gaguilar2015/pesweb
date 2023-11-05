@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Gian Aguilar">
 
-<title>PES Matching</title>
+<title>PES Matching at the SIB</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,60 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="pes_files/libs/clipboard/clipboard.min.js"></script>
-<script src="pes_files/libs/quarto-html/quarto.js"></script>
-<script src="pes_files/libs/quarto-html/popper.min.js"></script>
-<script src="pes_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="pes_files/libs/quarto-html/anchor.min.js"></script>
-<link href="pes_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="pes_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="pes_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="pes_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="pes_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="pes_short_files/libs/clipboard/clipboard.min.js"></script>
+<script src="pes_short_files/libs/quarto-html/quarto.js"></script>
+<script src="pes_short_files/libs/quarto-html/popper.min.js"></script>
+<script src="pes_short_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="pes_short_files/libs/quarto-html/anchor.min.js"></script>
+<link href="pes_short_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="pes_short_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="pes_short_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="pes_short_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="pes_short_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
-<script src="pes_files/libs/core-js-2.5.3/shim.min.js"></script>
-<script src="pes_files/libs/react-17.0.0/react.min.js"></script>
-<script src="pes_files/libs/react-17.0.0/react-dom.min.js"></script>
-<script src="pes_files/libs/reactwidget-1.0.0/react-tools.js"></script>
-<script src="pes_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<script src="pes_files/libs/reactable-binding-0.2.3.9000/reactable.js"></script>
+<script src="pes_short_files/libs/core-js-2.5.3/shim.min.js"></script>
+<script src="pes_short_files/libs/react-17.0.0/react.min.js"></script>
+<script src="pes_short_files/libs/react-17.0.0/react-dom.min.js"></script>
+<script src="pes_short_files/libs/reactwidget-1.0.0/react-tools.js"></script>
+<script src="pes_short_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="pes_short_files/libs/reactable-binding-0.2.3.9000/reactable.js"></script>
 
 
 </head>
@@ -87,20 +54,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#pes-matching-process" id="toc-pes-matching-process" class="nav-link active" data-scroll-target="#pes-matching-process">PES Matching Process</a></li>
-  <li><a href="#loading-the-data" id="toc-loading-the-data" class="nav-link" data-scroll-target="#loading-the-data">Loading the data</a></li>
   <li><a href="#the-pes-dataset" id="toc-the-pes-dataset" class="nav-link" data-scroll-target="#the-pes-dataset">The PES Dataset</a></li>
   <li><a href="#household-matching---level-1" id="toc-household-matching---level-1" class="nav-link" data-scroll-target="#household-matching---level-1">Household matching - Level 1</a>
-  <ul class="collapse">
+  <ul>
+  <li><a href="#household-level-matching-guidelines" id="toc-household-level-matching-guidelines" class="nav-link" data-scroll-target="#household-level-matching-guidelines">Household-level matching guidelines</a></li>
   <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">Preprocessing</a></li>
-  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
-  <li><a href="#code-walkthrough-optional" id="toc-code-walkthrough-optional" class="nav-link" data-scroll-target="#code-walkthrough-optional">Code Walkthrough (optional)</a></li>
+  <li><a href="#matching-algorithm" id="toc-matching-algorithm" class="nav-link" data-scroll-target="#matching-algorithm">Matching Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#merging" id="toc-merging" class="nav-link" data-scroll-target="#merging">1. Merging</a></li>
+  <li><a href="#scoring-pairs" id="toc-scoring-pairs" class="nav-link" data-scroll-target="#scoring-pairs">2. Scoring pairs</a></li>
+  <li><a href="#selecting-matches" id="toc-selecting-matches" class="nav-link" data-scroll-target="#selecting-matches">3. Selecting matches</a></li>
+  </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul></li>
   <li><a href="#household-matching---level-2" id="toc-household-matching---level-2" class="nav-link" data-scroll-target="#household-matching---level-2">Household Matching - Level 2</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#preprocessing-1" id="toc-preprocessing-1" class="nav-link" data-scroll-target="#preprocessing-1">Preprocessing</a></li>
-  <li><a href="#implementation-1" id="toc-implementation-1" class="nav-link" data-scroll-target="#implementation-1">Implementation</a></li>
-  <li><a href="#code-walkthrough-optional-1" id="toc-code-walkthrough-optional-1" class="nav-link" data-scroll-target="#code-walkthrough-optional-1">Code Walkthrough (optional)</a></li>
+  <li><a href="#matching-algorithm-1" id="toc-matching-algorithm-1" class="nav-link" data-scroll-target="#matching-algorithm-1">Matching Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#merging-1" id="toc-merging-1" class="nav-link" data-scroll-target="#merging-1">1. Merging</a></li>
+  <li><a href="#scoring-pairs-1" id="toc-scoring-pairs-1" class="nav-link" data-scroll-target="#scoring-pairs-1">2. Scoring pairs</a></li>
+  <li><a href="#selecting-matches-1" id="toc-selecting-matches-1" class="nav-link" data-scroll-target="#selecting-matches-1">3. Selecting matches</a></li>
+  </ul></li>
+  <li><a href="#results-1" id="toc-results-1" class="nav-link" data-scroll-target="#results-1">Results</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -109,13 +85,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">PES Matching</h1>
+<h1 class="title">PES Matching at the SIB</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Gian Aguilar </p>
+          </div>
+  </div>
     
   
     
@@ -131,58 +113,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The original guidelines called for a resource-intensive matching process, in which teams of matchers, reviewers and matching-supervisors are all involved in both household and individual level-matching. Nevertheless, in light of limited resources, the SIB team attempted to abstract, program and automate as much of the process as possible. There were no manual matchers, reviewers, or match supervisors - although there was a manual review and verification mechanism automated through a real-time web dashboard.</p>
 <p>The resulting matching program and dashboard were immensely helpful and extremely promising. Although not perfectt (there is certainly always the need for a manual inspection and verification step), the SIB team believes considers the automated matching a success and one that be further improved and refined to become an invaluable tool for PES exercises in the future.</p>
 </section>
-<section id="loading-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="loading-the-data">Loading the data</h2>
-<p>Before we can get into the nitty-gritty of matching, we first need to do some preparation. This includes loading our PES data and Census data and preparing them for matching.</p>
-<p>First, we load our datasets by fetching them from our database server. The details behind accessing this data are not important for the purpose this document, but we do show the code snippet that fetches the data below.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load PES datasets</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pes_b <span class="ot">&lt;-</span> <span class="fu">fetchWholeTable</span>(<span class="st">'pes_buildings'</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pes_u <span class="ot">&lt;-</span> <span class="fu">fetchWholeTable</span>(<span class="st">'pes_units'</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pes_hh <span class="ot">&lt;-</span> <span class="fu">fetchWholeTable</span>(<span class="st">'pes_households'</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>pes_ind <span class="ot">&lt;-</span> <span class="fu">fetchWholeTable</span>(<span class="st">'pes_individuals'</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>pes_out <span class="ot">&lt;-</span> <span class="fu">fetchWholeTable</span>(<span class="st">'pes_outmovers'</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#load CENSUS datasets</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>cen_hh <span class="ot">&lt;-</span> <span class="fu">fetchQuery</span>(census_hh_query)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cen_ind <span class="ot">&lt;-</span> <span class="fu">fetchQuery</span>(census_ind_query)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
 <section id="the-pes-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="the-pes-dataset">The PES Dataset</h2>
 <p>The PES dataset had a total of</p>
 <ul>
 <li><p>92 total enumeration districts, or EDs</p></li>
 <li><p>8892 listed households</p></li>
-<li><p>6994 households with a result of “Complete” or “Partially Complete”</p></li>
+<li><p>6962 households with a result of “Complete” or “Partially Complete”. We’ll call these the <em>respondent</em> PES households.</p></li>
 </ul>
 <p>The table below shows the total number of complete/partial households within each district and urban/rural area</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># completed household counts crosstab (district, urban/rural) </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> pes_hh <span class="sc">|&gt;</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(FINALRESULT <span class="sc">==</span> <span class="st">'Completed'</span>)  <span class="sc">|&gt;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(region, urban_rural) <span class="sc">|&gt;</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="fu">c</span>(<span class="st">'row'</span>, <span class="st">'col'</span>))</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># output a nice table</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">reactable</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 
-<div id="htmlwidget-c88c3c20541c39711de3" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c88c3c20541c39711de3">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["Belize North","Belize South","Belmopan","Cayo","Orange Walk","Stann Creek","Toledo","Total"],"Rural":[433,538,952,136,99,887,627,3672],"Urban":[783,1579,401,207,81,46,159,3256],"Total":[1216,2117,1353,343,180,933,786,6928]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"Rural","name":"Rural","type":"numeric"},{"accessor":"Urban","name":"Urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"594bd5e8e1b6ccf4c08108874471a001"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-001b015da967c7750fe5" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-001b015da967c7750fe5">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["Belize North","Belize South","Belmopan","Cayo","Orange Walk","Stann Creek","Toledo","Total"],"Rural":[433,538,952,136,99,887,627,3672],"Urban":[783,1579,401,207,81,46,159,3256],"Total":[1216,2117,1353,343,180,933,786,6928]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"Rural","name":"Rural","type":"numeric"},{"accessor":"Urban","name":"Urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"594bd5e8e1b6ccf4c08108874471a001"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="household-matching---level-1" class="level2">
 <h2 class="anchored" data-anchor-id="household-matching---level-1">Household matching - Level 1</h2>
 <p>The first level of household matching was also known as <em>Level-1 Matching</em>, or <em>Direct Matching</em>. <strong>The broad goal in this step was to quickly identify the easy matches</strong>: household-pairs in the same physical location (ED, block, buiding) that appeared to be the same household after comparing the names in the corresponding household listings. This step was important because we want to identify and exclude as much matches as possible in this “easy” step before moving on to more time-consuming, computationally expensive processes and algorithms.</p>
+<section id="household-level-matching-guidelines" class="level3">
+<h3 class="anchored" data-anchor-id="household-level-matching-guidelines">Household-level matching guidelines</h3>
 <p>We first review the household-matching guidelines in the Matching Manual:</p>
 <ol type="1">
 <li><p>Select an EA and identify both Census and PES household questionnaires.</p></li>
@@ -199,290 +151,205 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>If a PES-Census household match cannot be found within a EA, the search can extend to the surrounding EAs or even nationally. 5124</p></li>
 </ul></li>
 </ol>
+</section>
 <section id="preprocessing" class="level3">
 <h3 class="anchored" data-anchor-id="preprocessing">Preprocessing</h3>
 <p>To ready the datasets for name-based matching, we first do some cleanup and preparation. In order to be able to more accurately compare the listed household members in the PES and Census households, the following preparation was done in each dataset:</p>
 <ol type="1">
-<li><p>Member names were sorted based on the following variables:</p>
-<ul>
-<li><p>Age</p></li>
-<li><p>Sex</p></li>
-</ul></li>
-<li><p>This sorting would, in most cases, ensure that the members would be in the same order in both the PES and Census household listings.</p></li>
-<li><p>The last name of the listed head of the household was also extracted into its own variable, as comparing household based on last names can also be useful.</p></li>
-<li><p>Some cleanup was also done within the name columns, to ensure that missing values, such as “NA” or “##N/A##’ are not interpreted as valid name values.</p></li>
+<li>The columns containing the household member names were rearranged and sorted based on age and sex.</li>
 </ol>
-<p>The code below is used to perform some basic structuring of the Census and PES datasets in order to prepare them for the matching.</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select a subset of the census household dataset, only selecting necessary</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># variables for household-level matching</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cen_with_names <span class="ot">&lt;-</span> cen_hh <span class="sc">|&gt;</span> </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">census_key =</span> interview__key, </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">census_hh_id =</span> interview__id.x,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         hh_id, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         head_name, </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>         ed,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         sa,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>         buildingID, </span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">unit_id =</span> parent_unit,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>         Person1,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>         Person2, </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>         Person3, </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>         Person4, </span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>         Person5) <span class="sc">|&gt;</span> </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">census_head =</span> head_name)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out households with empty head names/household listings, and</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># derive a new variable to extract and hold the last name</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a> cen_with_names <span class="ot">&lt;-</span> cen_with_names <span class="sc">|&gt;</span> </span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>   <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(census_head) <span class="sc">&amp;</span> census_head <span class="sc">!=</span> <span class="st">'##N/A##'</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>         <span class="at">clast_name =</span> <span class="fu">str_split_fixed</span>(census_head, <span class="st">" "</span>, <span class="at">n =</span> <span class="dv">2</span>)[,<span class="dv">2</span>]</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>         ) </span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values coded as '##N/A##' with an empty string</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>cen_with_names <span class="ot">&lt;-</span> cen_with_names <span class="sc">|&gt;</span> </span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">modify_if</span>(is.character, <span class="sc">~</span> <span class="fu">str_to_lower</span>(<span class="fu">str_trim</span>(<span class="fu">str_replace_all</span>(.x, <span class="st">'##N/A##'</span>, <span class="st">''</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<p>And we do the same with the PES data</p>
-<div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select a subset of the pes household dataset, only selecting necessary</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># variables used in household-level matching</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>pes_with_names <span class="ot">&lt;-</span> pes_hh <span class="sc">|&gt;</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">pes_key =</span> interview__key, </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">pes_hh_id =</span> interview__id,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>         hh_id, </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>         head_name, </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>         Person1,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>         Person2, </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>         Person3, </span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>         Person4,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>         Person5,</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>         ed,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>         sa,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>         region,</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>         urban_rural</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>         ) <span class="sc">|&gt;</span> </span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">pes_head =</span> head_name)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># filter out households with empty head names/household listings, and</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># derive a new variable to extract and hold the last name</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>pes_with_names <span class="ot">&lt;-</span> pes_with_names <span class="sc">|&gt;</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(pes_head) <span class="sc">&amp;</span> pes_head <span class="sc">!=</span> <span class="st">'##N/A##'</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">plast_name =</span> <span class="fu">str_split_fixed</span>(pes_head, <span class="st">" "</span>, <span class="at">n =</span> <span class="dv">2</span>)[,<span class="dv">2</span>]</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co"># replace missing values coded as '##N/A##' with an empty string</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>pes_with_names <span class="ot">&lt;-</span> pes_with_names <span class="sc">|&gt;</span> </span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">modify_if</span>(is.character, <span class="sc">~</span> <span class="fu">str_to_lower</span>(<span class="fu">str_trim</span>(<span class="fu">str_replace_all</span>(.x, <span class="st">'##N/A##'</span>, <span class="st">''</span>))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-</section>
-<section id="implementation" class="level3">
-<h3 class="anchored" data-anchor-id="implementation">Implementation</h3>
-<p>As previously explained, this first level of matching was a strict, full matching where ALL variables had to match. To pass the Level-1 matching, both the PES and Census household had to coincide exactly on the following variables</p>
 <ul>
-<li><p>ED number</p></li>
-<li><p>Block number</p></li>
-<li><p>Building number</p></li>
-<li><p>Dwelling number</p></li>
+<li>This sorting would, in most cases, ensure that persons in the household would be in the same order in both the PES and Census household listings.</li>
+<li>This would be useful during matching.</li>
+<li>In the case of the PES, the names of <em>outmovers</em> were also included in this process.</li>
 </ul>
-<p>This means we are matching households that are EXACTLY in the same geographic location. <em>Furthermore</em>, to establish that the two households are actually the same, the names of the household members was compared. This was done as follows:</p>
-<ol type="1">
-<li>The name of the head of the household from the CENSUS dataset was identified.</li>
-<li>The name of the census head was compared with EACH listed member in the corresponding PES household.</li>
-<li>A string comparison function (using the Jaro-Wrinkler string-distance method) was used to obtain a score for each comparison.
-<ul>
-<li>We will refer to this as the JW score. The higher the score, the closer the two names match.</li>
-</ul></li>
-<li>If the name of the census head reasonably matched (a JW score 0.7 was established) with any name in the PES listing, then this household was considered a match.</li>
-<li>Based on the closeness of the names matched, a confidence score was also given to the match:
-<ol type="1">
-<li>High - (JW score &gt; 0.9)</li>
-<li>Moderate - (JW score &gt; 0.75)</li>
-<li>Fair - (JW score &gt;= 0.7)</li>
-</ol></li>
-<li>The derived confience score was then useful in manual/visual reviews.</li>
+<ol start="2" type="1">
+<li><p>A <em>last_name</em> variable was derived for each household to hold the last name of the listed head. This would also be useful during matching.</p></li>
+<li><p>An id variable, <em>hh_id</em>, was derived to uniquely identify each household.</p></li>
 </ol>
-<p>We would then obtain our level-1 household matches dataset. The following section goes over the R code used to implement the above algorithm.</p>
+<ul>
+<li><strong>Importantly</strong>, this ID was a concatenation of the ED number, building number, dwelling number and household number.</li>
+</ul>
+<ol start="4" type="1">
+<li>The name columns were cleaned up so that invalid values (“Missing”, “NA”, “None”) could be replaced with empty strings (’’).</li>
+</ol>
 </section>
-<section id="code-walkthrough-optional" class="level3">
-<h3 class="anchored" data-anchor-id="code-walkthrough-optional">Code Walkthrough (optional)</h3>
-<p>In the code below, we implement the previous algorithm by first joining the two datasets based on a unique household identifier <code>hh_id</code>. This ensures a 1-1 household match at the geographic level (each physical household in the PES will be matched to its corresponding physical household in the Census, if exists). Then, we compare the names of the first five persons in each household, using the <code>stringsim</code> function and the Jaro-Winkler method. We obtain a similarity score for each pairwise comparison. We save the results in the object <code>scored_dataset</code>.</p>
+<section id="matching-algorithm" class="level3">
+<h3 class="anchored" data-anchor-id="matching-algorithm">Matching Algorithm</h3>
+<p>As previously explained, this first level of matching was a strict, full matching where ALL variables had to match. The following sections provide an expanded description of the full, direct-matching (Level-1) algorithm.</p>
+<section id="merging" class="level4">
+<h4 class="anchored" data-anchor-id="merging">1. Merging</h4>
+<p>Both datasets were merged, or joined, using the unique <em>hh_id</em>. This means that PES records were joined with Census records if they shared the same ED, building, dwelling and household numbers. In other words, records that were in the same exact geographic location were joined.</p>
+<p>The table below illustrates a simplified example of the merge.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>scored_dataset <span class="ot">&lt;-</span> pes_with_names <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">inner_join</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    cen_with_names,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'hh_id'</span>, <span class="st">'ed'</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">score_head =</span> <span class="fu">stringsim</span>(census_head, pes_head, <span class="at">method =</span> <span class="st">'jw'</span>),</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">score_surname =</span> <span class="fu">stringsim</span>(clast_name, plast_name, <span class="at">method =</span> <span class="st">'jw'</span>),</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">score_p1 =</span> <span class="fu">stringsim</span>(Person1.x, Person1.y, <span class="at">method =</span> <span class="st">'jw'</span>),</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">score_p2 =</span> <span class="fu">stringsim</span>(Person2.x, Person2.y, <span class="at">method =</span> <span class="st">'jw'</span>),</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">score_p3 =</span> <span class="fu">stringsim</span>(Person3.x, Person3.y, <span class="at">method =</span> <span class="st">'jw'</span>),</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">score_p4 =</span> <span class="fu">stringsim</span>(Person4.x, Person4.y, <span class="at">method =</span> <span class="st">'jw'</span>),</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">score_p5 =</span> <span class="fu">stringsim</span>(Person5.x, Person5.y, <span class="at">method =</span> <span class="st">'jw'</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>         ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="cell-output-display">
+
+<div id="htmlwidget-ccbbcbaede384301de2e" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ccbbcbaede384301de2e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"building_num":["40","6","4","10","3"],"Person1.x":["jose sagastume","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"Person2.x":[null,"lurio maldonado","silvia bah",null,"petronia ico"],"Person1.y":["francisco sabastunes","evelia castainos","edward ico","ida perez","antonio ico"],"Person2.y":[null,"esbin garcia","sylyia ba","adelina garcia","petrona ico"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"building_num","name":"building_num","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Person1.x","Person2.x"]},{"name":"Census","columns":["Person1.y","Person2.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"67fc97cb6adf4cf41e3acc910fc6ced1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
-<p>Then, we are interested in knowing which pairwise comparison obtained the maximum similarity score. We save this maximum score in a variable called <code>highest</code>. Subsequently, we filter and ONLY keep records where the <code>highest</code> score is greater than 0.7. This means we are only keeping households where at least one pair of household member names were a close match. We save the results in the object <code>temp_matches</code>, as we have one more step to perform.</p>
+</div>
+<p>Some noteworthy comments on the results of the merge:</p>
+<ol type="1">
+<li><p><strong>Of the 6962 respondent PES households, only 4119 (58.9%) found an exact geographic match in the Census respondent dataset.</strong> This means that for the remaining 41% of PES respondent households, there exists no respondent Census household in the same geographic location.</p></li>
+<li><p>Because both datasets share columns with the same name (“Person<em>N</em>”), the merging algorithm assigned the suffix <em>.x</em> to the PES columns and <em>.y</em> to the Census columns, wherever there was a conflict.</p></li>
+<li><p>We can already see some characterstics of the data structure, in which records that appear to be for the same households have many spelling inconsistencies in the member names.</p></li>
+<li><p>We can also see the existence of records that likely do not belong to the same household (abisai alas).</p></li>
+</ol>
+<p>This leads us to the next step.</p>
+</section>
+<section id="scoring-pairs" class="level4">
+<h4 class="anchored" data-anchor-id="scoring-pairs">2. Scoring pairs</h4>
+<p>As noted in the previous step, simply matching households based on geographic location is not enough. The final decision must be made on the basis of the listed household members. How do we compare the member names in an automated way? We cannot use an exact-match method, as there will always be inconsistencies in spelling, even when the names belong to the same person. Instead, we need a more flexible algorithm.</p>
+<p>In the world of string matching/string search, there are many algorithms that are useful for evaluationg the similarity of two pieces of text (otherwise known as <em>strings</em> in the programming world). For the purpose of this exercise, I selected the <strong>Jaro-Winkler</strong> algorithm.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Jaro-Winkler distance algorithm is a measure of the similarity between two strings. It is a variant of the Jaro similarity algorithm, which compares the two strings character by character and takes into account the number of matching characters and the number of transpositions needed to transform one string into the other.</p>
+</div>
+</div>
+<p>Now, we compare the similarity of the names of the household members using the JW algorithm. This was done in the following way:</p>
+<ol type="1">
+<li>The name of Person1 in the PES dataset was compared with the name of Person1 in the Census dataset, PES Person2 with Census Person2, and so on for the up to 5 household members (add footnote).</li>
+</ol>
+<ul>
+<li>Remember that we have previously sorted names in both datasets by age and gender, which will maximize chances that we are comparing the correct persons regardless of the order of the original PES and Census member listings.</li>
+</ul>
+<ol start="2" type="1">
+<li>A similarity score was obtained and saved for each comparison.</li>
+<li>The maximum score for each record was also saved in a separate variable.</li>
+</ol>
+<ul>
+<li>For example, if for a specific record, the <strong>Person2</strong> comparison received the highest score, perhaps a perfect 1 if the name was <em>exactly</em> in both datasets, this score was saved in its own variable.</li>
+</ul>
+<p>Now, we have a useful set of scores based on the similarity of the member names in the PES and Census households. How do we decide which are successful matches? In other words, how do we know if the two records are for the same household?</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>temp_matches <span class="ot">&lt;-</span> scored_dataset <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">highest =</span> <span class="fu">max</span>(score_head, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>              score_surname, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>              score_p1, </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>              score_p2, </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>              score_p3, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>              score_p4, </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>              score_p5, </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">na.rm =</span> T)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    highest <span class="sc">&gt;</span> <span class="fl">0.7</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="cell-output-display">
+
+<div id="htmlwidget-494cfe74d243cf4a6472" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-494cfe74d243cf4a6472">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"hh_id":["41-030-00-1-1-1","41-030-00-40-1-1","41-030-00-6-1-1","41-030-00-4-1-1","41-030-00-10-1-1","41-030-00-3-1-1"],"Person1.x":["edwin givara","jose sagastume","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"Person1.y":["edwin gvelarai","francisco sabastunes","evelia castainos","edward ico","ida perez","antonio ico"],"score_p1":[0.88,0.67,0.92,0.9,0.42,0.8],"Person2.x":["lidia ico",null,"lurio maldonado","silvia bah",null,"petronia ico"],"Person2.y":["lydia ico",null,"esbin garcia","sylyia ba","adelina garcia","petrona ico"],"score_p2":[0.82,"NA",0.45,0.78,"NA",0.93]},"columns":[{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"score_p1","name":"score_p1","type":"numeric","style":{"background":"#FFECAC","fontWeight":"bold"}},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"},{"accessor":"score_p2","name":"score_p2","type":"numeric","style":{"background":"#FFECAC","fontWeight":"bold"}}],"columnGroups":[{"name":"Person 1","columns":["Person1.x","Person1.y","score_p1"]},{"name":"Person 2","columns":["Person2.x","Person2.y","score_p2"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"b4632c9e680dfabfacc6f9198bc934fd"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
-<p>Finally we select the variables that will be relevant for reporting and analysis, and also derive a <code>confidence</code> score for each household match, following the previously outlined rules. The code is somewhat lengthy but it is simple. We finally save the results in the object <code>level1_matches</code>.</p>
+</div>
+</section>
+<section id="selecting-matches" class="level4">
+<h4 class="anchored" data-anchor-id="selecting-matches">3. Selecting matches</h4>
+<p>The simplest way of selecting a match (and the one I chose) is to establish a treshold for the similarity scores and selecting those records that pass the treshold.</p>
+<p>After some experimenting and visual inspection, I selected a similarity score of 0.7 as the matching treshold. Essentially, this means that <strong>if any of the name comparisons obtained a Jaro-Wrinkler score greater than 0.7, the household pair was determined to be a successful match</strong>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The 0.7 treshold is somewhat lenient, but given that in this Level-1 Matching, we have already proven that the pair of households are in the exact same geographic location, then we should only need moderate proof that the household member names are similar in order to call it a match with reasonable confidence. This, of course, is an arbitrary choice that may be debated and modified.</p>
+</div>
+</div>
+<p>In addition, each record that was selected as a match was assigned a <strong>confidence score</strong>, depending on how exactly the member names matched. The confidence score was somewhat complex, taking into consideration several factors (head last names, number of matching names, etc.), but a simplified version of assinging a score can be seen below:</p>
+<ol type="1">
+<li>High - (Max JW score &gt; 0.95)</li>
+<li>Moderate - (Max JW score &gt; 0.85)</li>
+<li>Fair - (Max JW score &gt;= 0.7)</li>
+</ol>
+<p>The derived confidence score was then useful in manual/visual reviews, as the example below illustrates.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>level1_matches <span class="ot">&lt;-</span> temp_matches <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    region, </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    urban_rural, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    ed, </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    buildingID, </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    unit_id, </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    pes_key, </span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    pes_hh_id, </span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    pes_head, </span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    hh_id,</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">pes_lastname =</span> plast_name, </span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    census_key, </span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    census_hh_id,</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    census_head, score_head,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_lastname =</span> clast_name,</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">lname_score =</span> score_surname,</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_p1 =</span> Person1.y, </span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_p2 =</span> Person2.y, </span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_p3 =</span> Person3.y,  </span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_p4 =</span> Person4.y,</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">census_p5 =</span> Person5.y,</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    score_p1, </span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    score_p2, </span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    score_p3, </span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    score_p4, </span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    score_p5, </span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_score =</span> highest</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">confidence =</span> <span class="fu">case_when</span>(</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>      score_head <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">|</span> </span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        score_p1 <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">|</span> </span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        score_p2 <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">|</span> </span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        score_p3 <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">|</span>  </span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        score_p4 <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">|</span> </span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        score_p5 <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">~</span> <span class="st">"high"</span>,</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>     (score_head <span class="sc">&gt;</span> <span class="fl">0.75</span>  <span class="sc">|</span> </span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        score_p1 <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">|</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        score_p2 <span class="sc">&gt;</span> <span class="fl">0.75</span> <span class="sc">|</span> </span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        score_p3 <span class="sc">&gt;</span> <span class="fl">0.75</span> <span class="sc">|</span>  </span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        score_p4 <span class="sc">&gt;</span> <span class="fl">0.75</span> <span class="sc">|</span> </span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        score_p5 <span class="sc">&gt;</span> <span class="fl">0.75</span>) <span class="sc">&amp;</span> lname_score <span class="sc">&gt;</span> <span class="fl">0.8</span> <span class="sc">~</span> <span class="st">"moderate"</span>,</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"fair"</span></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="cell-output-display">
+
+<div id="htmlwidget-9ca77b1eb617440e61d1" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9ca77b1eb617440e61d1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","32-030-00","32-055-00"],"building_num":["40","30","6"],"pes_p1":["jose sagastume","emmanuel lopez","kareem flower sr"],"census_p1":["francisco sabastunes","emmanuel lopez.","karin flores"],"max_score":[0.83,0.98,0.85],"confidence":["fair","high","moderate"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"building_num","name":"building_num","type":"character"},{"accessor":"pes_p1","name":"pes_p1","type":"character"},{"accessor":"census_p1","name":"census_p1","type":"character"},{"accessor":"max_score","name":"max_score","type":"numeric"},{"accessor":"confidence","name":"confidence","type":"character","style":[{"background":"#CCCC00"},{"background":"#32CD32"},{"background":"#9ACD32"}]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"7dbb42af3660efccd97a013e8add7137"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
+</div>
+</section>
 </section>
 <section id="results" class="level3">
 <h3 class="anchored" data-anchor-id="results">Results</h3>
+<p>After the matching and selection process, a total of <strong>3223 PES households</strong> were matched to a Census household.</p>
+<ul>
+<li>This represents <strong>78.2%</strong> of the 4119 PES households for which a geographically-matching Census household existed. (See step #1: Merging).</li>
+<li>This represents <strong>46.3%</strong> of the 6962 respondent PES households.</li>
+<li>This represents <strong>36.2%</strong> of all 8892 listed PES households.</li>
+</ul>
+<p>The table below shows the distribution of Level-1 Matches by region and urban/rural</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>l1_results <span class="ot">&lt;-</span> <span class="fu">fetchWholeTable</span>(<span class="st">'pes_matches_l1'</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> l1_results <span class="sc">|&gt;</span> </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabyl</span>(region, urban_rural) <span class="sc">|&gt;</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="fu">c</span>(<span class="st">'row'</span>, <span class="st">'col'</span>))</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">reactable</span>(table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output-display">
 
-<div id="htmlwidget-c6f0077f44bc8cb17e51" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c6f0077f44bc8cb17e51">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["belize north","belize south","belmopan","cayo","orange walk","stann creek","toledo","Total"],"rural":[190,232,452,79,69,382,353,1757],"urban":[247,742,228,97,58,20,76,1468],"Total":[437,974,680,176,127,402,429,3225]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"rural","name":"rural","type":"numeric"},{"accessor":"urban","name":"urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"dataKey":"46a8866267330f9790471255e05791f3"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f391a1c161bd4e61ead6" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f391a1c161bd4e61ead6">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["belize north","belize south","belmopan","cayo","orange walk","stann creek","toledo","Total"],"rural":[191,230,465,79,69,383,357,1774],"urban":[227,739,231,101,57,19,75,1449],"Total":[418,969,696,180,126,402,432,3223]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"rural","name":"rural","type":"numeric"},{"accessor":"urban","name":"urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"f9ce3839953589ce19f1a879d16ef5d2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 </section>
 <section id="household-matching---level-2" class="level2">
 <h2 class="anchored" data-anchor-id="household-matching---level-2">Household Matching - Level 2</h2>
-<p>It is worth noting that the Level-1 matching would only find successful household pairs if both Census and PES households were <em>recorded</em> to be in the exact same physical/geographical location. However, variations in canvassing, and interviewer error could mean that a match was missed due to enumerator error. For example the dwelling or building number were different between datasets, although the household was the same.</p>
-<p>In Level-2 matching, we will work with all remaining unmatched households within each ED. At this level, every remaining PES household in the ED will be compared against every remaining Census household in the ED. This means that we will be doing N X M comparisons, where N is the number of unmatched households in the PES ED, and M is the number of unmatched households in the Census dataset.</p>
-<p>To find matches, a special record-linkage procedure was used, in conjuction with a machine learning algorithm that was trained using the high-confidence matches from the Level-1 matches.</p>
+<p>It is worth noting that the Level-1 matching would only find successful household pairs if both Census and PES households were <em>recorded</em> to be in the exact same physical/geographical location. However, variations in canvassing and interviewer error could mean that a match was missed due to enumerator error. For example: although in reality a household X is in the same geographic location for both PES and Census, the enumerator made an error when recording the building or dwelling number.</p>
+<p>In Level-2 matching, we will work with all remaining <strong><em>unmatched</em></strong> households within each ED. At this level, every remaining PES household in the ED will be compared against every remaining Census household in the ED.</p>
+<p>To find matches, a special record-linkage procedure was used, in conjuction with a machine learning algorithm that was trained using the high-confidence matches from the Level-1 match set.</p>
 <section id="preprocessing-1" class="level3">
 <h3 class="anchored" data-anchor-id="preprocessing-1">Preprocessing</h3>
-<p>To ready the datasets for name-based matching, we first do some cleanup and preparation. In order to be able to more accurately compare the listed household members in the PES and Census households, the following preparation was done in each dataset:</p>
+<p>The following preparation was done in order to proceed with this second-level of household matching:</p>
+<ol type="1">
+<li>We go back to our original set of 6962 respondent PES households.</li>
+<li>We add a new variable/column to our PES dataset, where we will indicate if this household found a match during Level-1 matching, and we will also add the confidence score column.</li>
+<li>We apply step #2 to the Census dataset as well. (add note)</li>
+</ol>
+<p>What we have now is our two <em>separate</em> PES and Census datasets, but with special columns that indicate if they specific household record has previously found a match during L1-matching.</p>
+</section>
+<section id="matching-algorithm-1" class="level3">
+<h3 class="anchored" data-anchor-id="matching-algorithm-1">Matching Algorithm</h3>
+<section id="merging-1" class="level4">
+<h4 class="anchored" data-anchor-id="merging-1">1. Merging</h4>
+<p>The merging is simpler but more expansive than the Level-1 merging. For Level-2, we simply merge every unmatched PES household in a given ED, with every other unmatched Census household in the ED. This means that we will end up with a dataset with of N X M total rows, where N is the number of unmatched PES households in the ED, and M is the number of unmatched census households in the ED.</p>
+<p>Another way of describing the above merge is to say that we are doing a many-to-many merge of the unmatched PES and Census datasets, <em>blocking</em> by ED. The table below illustrates a simplified picture of this type of merge.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>high_matches <span class="ot">&lt;-</span> level1_matches <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(confidence <span class="sc">==</span> <span class="st">'high'</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>pes_link <span class="ot">&lt;-</span> pes_with_names <span class="sc">|&gt;</span> </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    high_matches <span class="sc">|&gt;</span> <span class="fu">select</span>(hh_id, confidence),</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'hh_id'</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">case_when</span>(</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>      <span class="sc">!</span><span class="fu">is.na</span>(confidence) <span class="sc">~</span> hh_id</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, hh_id, ed, sa, <span class="at">head =</span> pes_head, Person1, Person2, Person3, Person4, Person5, <span class="at">last_name =</span> plast_name)</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>census_link <span class="ot">&lt;-</span> cen_with_names <span class="sc">|&gt;</span> </span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    high_matches <span class="sc">|&gt;</span> <span class="fu">select</span>(hh_id, confidence),</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">'hh_id'</span>)</span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> <span class="fu">case_when</span>(</span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>      <span class="sc">!</span><span class="fu">is.na</span>(confidence) <span class="sc">~</span> hh_id</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, hh_id, ed, sa, <span class="at">head =</span> census_head, Person1, Person2, Person3, Person4, Person5, <span class="at">last_name =</span> clast_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
+<div class="cell-output-display">
+
+<div id="htmlwidget-3a9f30f57647607ea462" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3a9f30f57647607ea462">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"hh_id":["41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1"],"Person1.x":["edwin givara","edwin givara","edwin givara","edwin givara","edwin givara","abisai alas","abisai alas","abisai alas","abisai alas","abisai alas"],"Person1.y":["edwin gvelarai","ida perez","david hernandez","jerimas polanco","randy cal","edwin gvelarai","ida perez","david hernandez","jerimas polanco","randy cal"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Person1.x"]},{"name":"Census","columns":["Person1.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"9e1e73ea64b3dcf43233e8bc709dc9d1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </section>
-<section id="implementation-1" class="level3">
-<h3 class="anchored" data-anchor-id="implementation-1">Implementation</h3>
-<ol type="1">
-<li><p>We will use a specialized record-linkage package named <code>reclin2</code> in order to perform the within-ED comparisons.</p></li>
-<li><p>We will use a <strong>random forest</strong> machine-learning algorithm to help us determine matches.</p></li>
-</ol>
-<p>The sections that follow explain this approach in more detail.</p>
-<p>We would then obtain our level-1 household matches dataset. The following section goes over the R code used to implement the above algorithm.</p>
+<section id="scoring-pairs-1" class="level4">
+<h4 class="anchored" data-anchor-id="scoring-pairs-1">2. Scoring pairs</h4>
+<p>The scoring of the PES-Census pairs was very similar to the the Level-1 scoring. The names of the first five household members were compared in each PES-Census pair, and a similarity score was obtained using the Jaro-Winkler method.</p>
+<p>Each of these scores was saved in its own variable/column.</p>
 </section>
-<section id="code-walkthrough-optional-1" class="level3">
-<h3 class="anchored" data-anchor-id="code-walkthrough-optional-1">Code Walkthrough (optional)</h3>
+<section id="selecting-matches-1" class="level4">
+<h4 class="anchored" data-anchor-id="selecting-matches-1">3. Selecting matches</h4>
+<p>In Level-1 matching, before we even looked at the member names, we already knew that we were comparing households in the same exact physical/geographic location. Any discovered similarity between member names could immediately determine the pair of households to be a true match.</p>
+<p>Now, we have more than just 1 pair of PES-Census households per geographic point. We have M pairs of households for every PES household, where M is the number of unmatched Census households in a given ED. How do we select THE true matching pair among these M pairs?</p>
+<p>Intuitively, we could simply say that we simply select the pair with the highest sum total of JW similarity scores. Easy, right? Well, there are a few problems with this approach.</p>
+<ol type="1">
+<li>This method would ALWAYS find a match for each PES household, even if there exists no true match in the Census dataset.</li>
+<li>The score sum total is not a good metric to start with, because the sum is cumulative and is influenced by the number of persons being compared.
+<ul>
+<li>A pair of two-person-PES-household/10-person-Census-household will likely have a high sum of scores than the “true” two-person-PES/two-person-Census pair.</li>
+</ul></li>
+</ol>
+<p>Problem #1 can be partially solved by establishing some sort of minimum threshold to qualify a match, but again this does not solve problem #2. So to avoid getting into developing a complex algorithm to tackle these issues, we might rather decide to use a proven machine-learning algorithm.</p>
+<p>For Level-2 matching, I selected a <strong>Random Forest machine-learning algorithm</strong> for selecting matches. I will not get into the details of model, selection and evaluation, but I will mention that a logistic regression model was also evaluated but proved to be less accurate than the random forest model.</p>
+<p>A simplified summary of the procedure:</p>
+<ol type="1">
+<li><p>The random forest model was built using the following formula: <code>y = score_p1 + score_p2 + score_p3 + score_p4 + score_p5</code> where y is the match status (Match/NonMatch) and score_p<em>n</em> are the JW scores obtained during scoring.</p></li>
+<li><p>The model was trained using the high-confidence matches from Level-1.</p>
+<ul>
+<li>Side-note: this is why we appended the ‘match’ and ‘confidence’ columns to our PES and Census datasets during the Merging step.</li>
+</ul></li>
+<li><p>Whenever the model predicted Y to be a “Match”, this household pair was selected as a true match.</p></li>
+</ol>
+</section>
+</section>
+<section id="results-1" class="level3">
+<h3 class="anchored" data-anchor-id="results-1">Results</h3>
+<p>Hehe</p>
 </section>
 </section>
 
