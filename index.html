@@ -53,11 +53,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pes-matching-process" id="toc-pes-matching-process" class="nav-link active" data-scroll-target="#pes-matching-process">PES Matching Process</a></li>
+  <li><a href="#pes-matching-process" id="toc-pes-matching-process" class="nav-link active" data-scroll-target="#pes-matching-process">PES Matching Process</a>
+  <ul>
+  <li><a href="#key-features-and-automation" id="toc-key-features-and-automation" class="nav-link" data-scroll-target="#key-features-and-automation">Key Features and Automation</a>
+  <ul class="collapse">
+  <li><a href="#software-and-technology" id="toc-software-and-technology" class="nav-link" data-scroll-target="#software-and-technology">1. Software and technology</a></li>
+  <li><a href="#matching-algorithms" id="toc-matching-algorithms" class="nav-link" data-scroll-target="#matching-algorithms">2. Matching Algorithms</a></li>
+  <li><a href="#pes-dashboard" id="toc-pes-dashboard" class="nav-link" data-scroll-target="#pes-dashboard">3. PES Dashboard</a></li>
+  <li><a href="#reconciliation" id="toc-reconciliation" class="nav-link" data-scroll-target="#reconciliation">4. Reconciliation</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#the-pes-dataset" id="toc-the-pes-dataset" class="nav-link" data-scroll-target="#the-pes-dataset">The PES Dataset</a></li>
-  <li><a href="#household-matching---level-1" id="toc-household-matching---level-1" class="nav-link" data-scroll-target="#household-matching---level-1">Household matching - Level 1</a>
+  <li><a href="#household-matching" id="toc-household-matching" class="nav-link" data-scroll-target="#household-matching">Household Matching</a>
   <ul>
   <li><a href="#household-level-matching-guidelines" id="toc-household-level-matching-guidelines" class="nav-link" data-scroll-target="#household-level-matching-guidelines">Household-level matching guidelines</a></li>
+  <li><a href="#household-matching---stage-1" id="toc-household-matching---stage-1" class="nav-link" data-scroll-target="#household-matching---stage-1">Household matching - Stage 1</a>
+  <ul class="collapse">
   <li><a href="#preprocessing" id="toc-preprocessing" class="nav-link" data-scroll-target="#preprocessing">Preprocessing</a></li>
   <li><a href="#matching-algorithm" id="toc-matching-algorithm" class="nav-link" data-scroll-target="#matching-algorithm">Matching Algorithm</a>
   <ul class="collapse">
@@ -67,8 +78,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul></li>
-  <li><a href="#household-matching---level-2" id="toc-household-matching---level-2" class="nav-link" data-scroll-target="#household-matching---level-2">Household Matching - Level 2</a>
-  <ul>
+  <li><a href="#household-matching---stage-2" id="toc-household-matching---stage-2" class="nav-link" data-scroll-target="#household-matching---stage-2">Household Matching - Stage 2</a>
+  <ul class="collapse">
   <li><a href="#preprocessing-1" id="toc-preprocessing-1" class="nav-link" data-scroll-target="#preprocessing-1">Preprocessing</a></li>
   <li><a href="#matching-algorithm-1" id="toc-matching-algorithm-1" class="nav-link" data-scroll-target="#matching-algorithm-1">Matching Algorithm</a>
   <ul class="collapse">
@@ -78,6 +89,23 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#results-1" id="toc-results-1" class="nav-link" data-scroll-target="#results-1">Results</a></li>
   </ul></li>
+  <li><a href="#household-matching---stage-3" id="toc-household-matching---stage-3" class="nav-link" data-scroll-target="#household-matching---stage-3">Household Matching - Stage 3</a>
+  <ul class="collapse">
+  <li><a href="#results-2" id="toc-results-2" class="nav-link" data-scroll-target="#results-2">Results</a></li>
+  </ul></li>
+  <li><a href="#household-matching-summary" id="toc-household-matching-summary" class="nav-link" data-scroll-target="#household-matching-summary">Household matching summary</a></li>
+  </ul></li>
+  <li><a href="#individual-matching" id="toc-individual-matching" class="nav-link" data-scroll-target="#individual-matching">Individual Matching</a>
+  <ul>
+  <li><a href="#preprocessing-2" id="toc-preprocessing-2" class="nav-link" data-scroll-target="#preprocessing-2">Preprocessing</a></li>
+  <li><a href="#matching-algorithm-2" id="toc-matching-algorithm-2" class="nav-link" data-scroll-target="#matching-algorithm-2">Matching Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#merging-2" id="toc-merging-2" class="nav-link" data-scroll-target="#merging-2">1. Merging</a></li>
+  <li><a href="#scoring-pairs-2" id="toc-scoring-pairs-2" class="nav-link" data-scroll-target="#scoring-pairs-2">2. Scoring Pairs</a></li>
+  <li><a href="#selecting-matches-2" id="toc-selecting-matches-2" class="nav-link" data-scroll-target="#selecting-matches-2">3. Selecting Matches</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next Steps</a></li>
   </ul>
 </nav>
 </div>
@@ -106,15 +134,45 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="pes-matching-process" class="level2">
-<h2 class="anchored" data-anchor-id="pes-matching-process">PES Matching Process</h2>
+<section id="pes-matching-process" class="level1">
+<h1>PES Matching Process</h1>
 <p>This document explains the process used to perform household-level and individual-level matching for the 2023 Post-Enumeration Survey, which took place in the months of August-September 2023 as a quality assurance and coverage estimate exercise for the Belize 2022 Population and Housing Census.</p>
 <p>To perform the matchings, the general guidelines set out by PES consultant Armando Levinson were followed. However, the implementation for the matching was original. This is one of the first automated systems for PES matching that are known, and the rest of the document will summarize the methods and algorithm.</p>
 <p>The original guidelines called for a resource-intensive matching process, in which teams of matchers, reviewers and matching-supervisors are all involved in both household and individual level-matching. Nevertheless, in light of limited resources, the SIB team attempted to abstract, program and automate as much of the process as possible. There were no manual matchers, reviewers, or match supervisors - although there was a manual review and verification mechanism automated through a real-time web dashboard.</p>
-<p>The resulting matching program and dashboard were immensely helpful and extremely promising. Although not perfectt (there is certainly always the need for a manual inspection and verification step), the SIB team believes considers the automated matching a success and one that be further improved and refined to become an invaluable tool for PES exercises in the future.</p>
+<p>The resulting matching program and dashboard were immensely helpful and extremely promising. Although not perfect (there is certainly always the need for a manual inspection and verification step), the SIB team believes considers the automated matching a success and one that be further improved and refined to become an invaluable tool for PES exercises in the future.</p>
+<section id="key-features-and-automation" class="level2">
+<h2 class="anchored" data-anchor-id="key-features-and-automation">Key Features and Automation</h2>
+<p>The following are some key features of the PES matching process.</p>
+<section id="software-and-technology" class="level3">
+<h3 class="anchored" data-anchor-id="software-and-technology">1. Software and technology</h3>
+<p>The PES matching process was implemented in its entirety in the R software. R is a free, open-source programming language for statistical analysis, data processing and visualization.</p>
+<p>For <strong>automation</strong> purposes, a software called <em>Airlfow</em> was used. This is an <em>orchestration</em> software, used to schedule scripts and workflows. In our case, it was used to schedule, manage and run the R scripts that did the following things (among many others):</p>
+<ol type="1">
+<li>Download the latest PES data from Survey Solutions.</li>
+<li>Run the entire matching process on the latest data.</li>
+<li>Save the results in a central database.</li>
+</ol>
+<p>The <em>Airflow</em> software allowed us to run the R scripts in the correct order, at the correct time, and reported any errors or failures.</p>
 </section>
-<section id="the-pes-dataset" class="level2">
-<h2 class="anchored" data-anchor-id="the-pes-dataset">The PES Dataset</h2>
+<section id="matching-algorithms" class="level3">
+<h3 class="anchored" data-anchor-id="matching-algorithms">2. Matching Algorithms</h3>
+<p>The matching algorithms were based on the general guidelines set out by Mr.&nbsp;Levinson. However, the implementation expanded on the guidelines in order to account for the automated process that replaced all traditional human-based roles and activities.</p>
+<p>There exist algorithms for matching households and individuals. Some algorithms use simple logical rules, some follow record-linkage procedures, and some incorporate machine-learning models.</p>
+<p>All developed algorithms are original.</p>
+</section>
+<section id="pes-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="pes-dashboard">3. PES Dashboard</h3>
+<p>In addition to the R scripts developed to perform the matching process, a web-based, real-time PES Dashboard was also developed for the survey managers. Among many other things, this dashboard allowed for the progressive monitoring of the matching process, as well as other metrics and indicators.</p>
+<p>The dashboard incorporated a visual review features. For example, all household-level matches could be examined and verified. There was an easy mechanism for “unlinking” a false match, thus cleaning and verifying the final matched dataset.</p>
+</section>
+<section id="reconciliation" class="level3">
+<h3 class="anchored" data-anchor-id="reconciliation">4. Reconciliation</h3>
+<p>The process for preparing the reconciliation visits was also automated. This document <strong>will not</strong> expand on this topic, but there was a process for automatically preparing all of the reconciliation forms that interviewers took into the field for the reconciliation visits. This was also an original, automated implementation.</p>
+</section>
+</section>
+</section>
+<section id="the-pes-dataset" class="level1">
+<h1>The PES Dataset</h1>
 <p>The PES dataset had a total of</p>
 <ul>
 <li><p>92 total enumeration districts, or EDs</p></li>
@@ -125,16 +183,15 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-001b015da967c7750fe5" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-001b015da967c7750fe5">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["Belize North","Belize South","Belmopan","Cayo","Orange Walk","Stann Creek","Toledo","Total"],"Rural":[433,538,952,136,99,887,627,3672],"Urban":[783,1579,401,207,81,46,159,3256],"Total":[1216,2117,1353,343,180,933,786,6928]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"Rural","name":"Rural","type":"numeric"},{"accessor":"Urban","name":"Urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"594bd5e8e1b6ccf4c08108874471a001"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b7d2feb8aecdf6cfb63e" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b7d2feb8aecdf6cfb63e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["Belize North","Belize South","Belmopan","Cayo","Orange Walk","Stann Creek","Toledo","Total"],"Rural":[433,538,952,136,99,887,627,3672],"Urban":[783,1579,401,207,81,46,159,3256],"Total":[1216,2117,1353,343,180,933,786,6928]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"Rural","name":"Rural","type":"numeric"},{"accessor":"Urban","name":"Urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"594bd5e8e1b6ccf4c08108874471a001"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="household-matching---level-1" class="level2">
-<h2 class="anchored" data-anchor-id="household-matching---level-1">Household matching - Level 1</h2>
-<p>The first level of household matching was also known as <em>Level-1 Matching</em>, or <em>Direct Matching</em>. <strong>The broad goal in this step was to quickly identify the easy matches</strong>: household-pairs in the same physical location (ED, block, buiding) that appeared to be the same household after comparing the names in the corresponding household listings. This step was important because we want to identify and exclude as much matches as possible in this “easy” step before moving on to more time-consuming, computationally expensive processes and algorithms.</p>
-<section id="household-level-matching-guidelines" class="level3">
-<h3 class="anchored" data-anchor-id="household-level-matching-guidelines">Household-level matching guidelines</h3>
+<section id="household-matching" class="level1">
+<h1>Household Matching</h1>
+<section id="household-level-matching-guidelines" class="level2">
+<h2 class="anchored" data-anchor-id="household-level-matching-guidelines">Household-level matching guidelines</h2>
 <p>We first review the household-matching guidelines in the Matching Manual:</p>
 <ol type="1">
 <li><p>Select an EA and identify both Census and PES household questionnaires.</p></li>
@@ -152,6 +209,9 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ol>
 </section>
+<section id="household-matching---stage-1" class="level2">
+<h2 class="anchored" data-anchor-id="household-matching---stage-1">Household matching - Stage 1</h2>
+<p>The first level of household matching was also known as <em>Stage-1 Matching</em>, or <em>Direct Matching</em>. <strong>The broad goal in this step was to quickly identify the easy matches</strong>: household-pairs in the same physical location (ED, block, buiding) that appeared to be the same household after comparing the names in the corresponding household listings. This step was important because we want to identify and exclude as much matches as possible in this “easy” step before moving on to more time-consuming, computationally expensive processes and algorithms.</p>
 <section id="preprocessing" class="level3">
 <h3 class="anchored" data-anchor-id="preprocessing">Preprocessing</h3>
 <p>To ready the datasets for name-based matching, we first do some cleanup and preparation. In order to be able to more accurately compare the listed household members in the PES and Census households, the following preparation was done in each dataset:</p>
@@ -176,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="matching-algorithm" class="level3">
 <h3 class="anchored" data-anchor-id="matching-algorithm">Matching Algorithm</h3>
-<p>As previously explained, this first level of matching was a strict, full matching where ALL variables had to match. The following sections provide an expanded description of the full, direct-matching (Level-1) algorithm.</p>
+<p>As previously explained, this first level of matching was a strict, full matching where ALL variables had to match. The following sections provide an expanded description of the full, direct-matching (Stage-1) algorithm.</p>
 <section id="merging" class="level4">
 <h4 class="anchored" data-anchor-id="merging">1. Merging</h4>
 <p>Both datasets were merged, or joined, using the unique <em>hh_id</em>. This means that PES records were joined with Census records if they shared the same ED, building, dwelling and household numbers. In other words, records that were in the same exact geographic location were joined.</p>
@@ -184,8 +244,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-ccbbcbaede384301de2e" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ccbbcbaede384301de2e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"building_num":["40","6","4","10","3"],"Person1.x":["jose sagastume","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"Person2.x":[null,"lurio maldonado","silvia bah",null,"petronia ico"],"Person1.y":["francisco sabastunes","evelia castainos","edward ico","ida perez","antonio ico"],"Person2.y":[null,"esbin garcia","sylyia ba","adelina garcia","petrona ico"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"building_num","name":"building_num","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Person1.x","Person2.x"]},{"name":"Census","columns":["Person1.y","Person2.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"67fc97cb6adf4cf41e3acc910fc6ced1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-5c82e50476d7955033d6" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5c82e50476d7955033d6">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"building_num":["40","6","4","10","3"],"Person1.x":["jose sagastume","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"Person2.x":[null,"lurio maldonado","silvia bah",null,"petronia ico"],"Person1.y":["francisco sabastunes","evelia castainos","edward ico","ida perez","antonio ico"],"Person2.y":[null,"esbin garcia","sylyia ba","adelina garcia","petrona ico"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"building_num","name":"building_num","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Person1.x","Person2.x"]},{"name":"Census","columns":["Person1.y","Person2.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"67fc97cb6adf4cf41e3acc910fc6ced1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Some noteworthy comments on the results of the merge:</p>
@@ -211,7 +271,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The Jaro-Winkler distance algorithm is a measure of the similarity between two strings. It is a variant of the Jaro similarity algorithm, which compares the two strings character by character and takes into account the number of matching characters and the number of transpositions needed to transform one string into the other.</p>
+<p>The Jaro-Winkler distance algorithm is a measure of the similarity between two strings. It is a variant of the Jaro similarity algorithm, which compares the two strings character by character and takes into account the number of matching characters and the number of transpositions needed to transform one string into the other. JW gives more weight to similarities/differences at the start of the strings.</p>
 </div>
 </div>
 <p>Now, we compare the similarity of the names of the household members using the JW algorithm. This was done in the following way:</p>
@@ -232,8 +292,8 @@ Note
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-494cfe74d243cf4a6472" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-494cfe74d243cf4a6472">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"hh_id":["41-030-00-1-1-1","41-030-00-40-1-1","41-030-00-6-1-1","41-030-00-4-1-1","41-030-00-10-1-1","41-030-00-3-1-1"],"Person1.x":["edwin givara","jose sagastume","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"Person1.y":["edwin gvelarai","francisco sabastunes","evelia castainos","edward ico","ida perez","antonio ico"],"score_p1":[0.88,0.67,0.92,0.9,0.42,0.8],"Person2.x":["lidia ico",null,"lurio maldonado","silvia bah",null,"petronia ico"],"Person2.y":["lydia ico",null,"esbin garcia","sylyia ba","adelina garcia","petrona ico"],"score_p2":[0.82,"NA",0.45,0.78,"NA",0.93]},"columns":[{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"score_p1","name":"score_p1","type":"numeric","style":{"background":"#FFECAC","fontWeight":"bold"}},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"},{"accessor":"score_p2","name":"score_p2","type":"numeric","style":{"background":"#FFECAC","fontWeight":"bold"}}],"columnGroups":[{"name":"Person 1","columns":["Person1.x","Person1.y","score_p1"]},{"name":"Person 2","columns":["Person2.x","Person2.y","score_p2"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"b4632c9e680dfabfacc6f9198bc934fd"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-acef5344abf6f4eb34b9" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-acef5344abf6f4eb34b9">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"hh_id":["41-030-00-1-1-1","41-030-00-40-1-1","41-030-00-6-1-1","41-030-00-4-1-1","41-030-00-10-1-1","41-030-00-3-1-1"],"Person1.x":["edwin givara","jose sagastume","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"Person1.y":["edwin gvelarai","francisco sabastunes","evelia castainos","edward ico","ida perez","antonio ico"],"score_p1":[0.88,0.67,0.92,0.9,0.42,0.8],"Person2.x":["lidia ico",null,"lurio maldonado","silvia bah",null,"petronia ico"],"Person2.y":["lydia ico",null,"esbin garcia","sylyia ba","adelina garcia","petrona ico"],"score_p2":[0.82,"NA",0.45,0.78,"NA",0.93]},"columns":[{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"score_p1","name":"score_p1","type":"numeric","style":{"background":"#FFECAC","fontWeight":"bold"}},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"},{"accessor":"score_p2","name":"score_p2","type":"numeric","style":{"background":"#FFECAC","fontWeight":"bold"}}],"columnGroups":[{"name":"Person 1","columns":["Person1.x","Person1.y","score_p1"]},{"name":"Person 2","columns":["Person2.x","Person2.y","score_p2"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"b4632c9e680dfabfacc6f9198bc934fd"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -251,7 +311,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The 0.7 treshold is somewhat lenient, but given that in this Level-1 Matching, we have already proven that the pair of households are in the exact same geographic location, then we should only need moderate proof that the household member names are similar in order to call it a match with reasonable confidence. This, of course, is an arbitrary choice that may be debated and modified.</p>
+<p>The 0.7 treshold is somewhat lenient, but given that in this Stage-1 Matching, we have already proven that the pair of households are in the exact same geographic location, then we should only need moderate proof that the household member names are similar in order to call it a match with reasonable confidence. This, of course, is an arbitrary choice that may be debated and modified.</p>
 </div>
 </div>
 <p>In addition, each record that was selected as a match was assigned a <strong>confidence score</strong>, depending on how exactly the member names matched. The confidence score was somewhat complex, taking into consideration several factors (head last names, number of matching names, etc.), but a simplified version of assinging a score can be seen below:</p>
@@ -264,8 +324,8 @@ Note
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-9ca77b1eb617440e61d1" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-9ca77b1eb617440e61d1">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","32-030-00","32-055-00"],"building_num":["40","30","6"],"pes_p1":["jose sagastume","emmanuel lopez","kareem flower sr"],"census_p1":["francisco sabastunes","emmanuel lopez.","karin flores"],"max_score":[0.83,0.98,0.85],"confidence":["fair","high","moderate"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"building_num","name":"building_num","type":"character"},{"accessor":"pes_p1","name":"pes_p1","type":"character"},{"accessor":"census_p1","name":"census_p1","type":"character"},{"accessor":"max_score","name":"max_score","type":"numeric"},{"accessor":"confidence","name":"confidence","type":"character","style":[{"background":"#CCCC00"},{"background":"#32CD32"},{"background":"#9ACD32"}]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"7dbb42af3660efccd97a013e8add7137"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6d0748b9f0162bb5ef6f" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6d0748b9f0162bb5ef6f">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","32-030-00","32-055-00"],"building_num":["40","30","6"],"pes_p1":["jose sagastume","emmanuel lopez","kareem flower sr"],"census_p1":["francisco sabastunes","emmanuel lopez.","karin flores"],"max_score":[0.83,0.98,0.85],"confidence":["fair","high","moderate"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"building_num","name":"building_num","type":"character"},{"accessor":"pes_p1","name":"pes_p1","type":"character"},{"accessor":"census_p1","name":"census_p1","type":"character"},{"accessor":"max_score","name":"max_score","type":"numeric"},{"accessor":"confidence","name":"confidence","type":"character","style":[{"background":"#CCCC00"},{"background":"#32CD32"},{"background":"#9ACD32"}]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"7dbb42af3660efccd97a013e8add7137"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -278,27 +338,28 @@ Note
 <li>This represents <strong>46.3%</strong> of the 6962 respondent PES households.</li>
 <li>This represents <strong>36.2%</strong> of all 8892 listed PES households.</li>
 </ul>
-<p>The table below shows the distribution of Level-1 Matches by region and urban/rural</p>
+<p><strong>This means that, at this stage, there remain 3739 PES respondent households that are unmatched to any Census household.</strong></p>
+<p>The table below shows the distribution of Stage-1 Matches by region and urban/rural</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-f391a1c161bd4e61ead6" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f391a1c161bd4e61ead6">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["belize north","belize south","belmopan","cayo","orange walk","stann creek","toledo","Total"],"rural":[191,230,465,79,69,383,357,1774],"urban":[227,739,231,101,57,19,75,1449],"Total":[418,969,696,180,126,402,432,3223]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"rural","name":"rural","type":"numeric"},{"accessor":"urban","name":"urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"f9ce3839953589ce19f1a879d16ef5d2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9f8d3f56441b4942b16e" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9f8d3f56441b4942b16e">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["belize north","belize south","belmopan","cayo","orange walk","stann creek","toledo","Total"],"rural":[191,230,465,79,69,383,357,1774],"urban":[227,739,231,101,57,19,75,1449],"Total":[418,969,696,180,126,402,432,3223]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"rural","name":"rural","type":"numeric"},{"accessor":"urban","name":"urban","type":"numeric"},{"accessor":"Total","name":"Total","type":"numeric"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"f9ce3839953589ce19f1a879d16ef5d2"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 </section>
-<section id="household-matching---level-2" class="level2">
-<h2 class="anchored" data-anchor-id="household-matching---level-2">Household Matching - Level 2</h2>
-<p>It is worth noting that the Level-1 matching would only find successful household pairs if both Census and PES households were <em>recorded</em> to be in the exact same physical/geographical location. However, variations in canvassing and interviewer error could mean that a match was missed due to enumerator error. For example: although in reality a household X is in the same geographic location for both PES and Census, the enumerator made an error when recording the building or dwelling number.</p>
-<p>In Level-2 matching, we will work with all remaining <strong><em>unmatched</em></strong> households within each ED. At this level, every remaining PES household in the ED will be compared against every remaining Census household in the ED.</p>
-<p>To find matches, a special record-linkage procedure was used, in conjuction with a machine learning algorithm that was trained using the high-confidence matches from the Level-1 match set.</p>
+<section id="household-matching---stage-2" class="level2">
+<h2 class="anchored" data-anchor-id="household-matching---stage-2">Household Matching - Stage 2</h2>
+<p>It is worth noting that the Stage-1 matching would only find successful household pairs if both Census and PES households were <em>recorded</em> to be in the exact same physical/geographical location. However, variations in canvassing and interviewer error could mean that a match was missed due to enumerator error. For example: although in reality a household X is in the same geographic location for both PES and Census, the enumerator made an error when recording the building or dwelling number.</p>
+<p>In Stage-2 matching, we will work with all remaining <strong><em>unmatched</em></strong> households within each ED. At this level, every remaining PES household in the ED will be compared against every remaining Census household in the ED.</p>
+<p>To find matches, a special record-linkage procedure was used, in conjuction with a machine learning algorithm that was trained using the high-confidence matches from the Stage-1 match set.</p>
 <section id="preprocessing-1" class="level3">
 <h3 class="anchored" data-anchor-id="preprocessing-1">Preprocessing</h3>
 <p>The following preparation was done in order to proceed with this second-level of household matching:</p>
 <ol type="1">
 <li>We go back to our original set of 6962 respondent PES households.</li>
-<li>We add a new variable/column to our PES dataset, where we will indicate if this household found a match during Level-1 matching, and we will also add the confidence score column.</li>
+<li>We add a new variable/column to our PES dataset, where we will indicate if this household found a match during Stage-1 matching, and we will also add the confidence score column.</li>
 <li>We apply step #2 to the Census dataset as well. (add note)</li>
 </ol>
 <p>What we have now is our two <em>separate</em> PES and Census datasets, but with special columns that indicate if they specific household record has previously found a match during L1-matching.</p>
@@ -307,25 +368,25 @@ Note
 <h3 class="anchored" data-anchor-id="matching-algorithm-1">Matching Algorithm</h3>
 <section id="merging-1" class="level4">
 <h4 class="anchored" data-anchor-id="merging-1">1. Merging</h4>
-<p>The merging is simpler but more expansive than the Level-1 merging. For Level-2, we simply merge every unmatched PES household in a given ED, with every other unmatched Census household in the ED. This means that we will end up with a dataset with of N X M total rows, where N is the number of unmatched PES households in the ED, and M is the number of unmatched census households in the ED.</p>
+<p>The merging is simpler but more expansive than the Stage-1 merging. For Stage-2, we simply merge every unmatched PES household in a given ED, with every other unmatched Census household in the ED. This means that we will end up with a dataset with of N X M total rows, where N is the number of unmatched PES households in the ED, and M is the number of unmatched census households in the ED.</p>
 <p>Another way of describing the above merge is to say that we are doing a many-to-many merge of the unmatched PES and Census datasets, <em>blocking</em> by ED. The table below illustrates a simplified picture of this type of merge.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div id="htmlwidget-3a9f30f57647607ea462" class="reactable html-widget" style="width:auto;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3a9f30f57647607ea462">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"hh_id":["41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1"],"Person1.x":["edwin givara","edwin givara","edwin givara","edwin givara","edwin givara","abisai alas","abisai alas","abisai alas","abisai alas","abisai alas"],"Person1.y":["edwin gvelarai","ida perez","david hernandez","jerimas polanco","randy cal","edwin gvelarai","ida perez","david hernandez","jerimas polanco","randy cal"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Person1.x"]},{"name":"Census","columns":["Person1.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"9e1e73ea64b3dcf43233e8bc709dc9d1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fdbe78f404bd9e7f3ff3" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fdbe78f404bd9e7f3ff3">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"hh_id":["41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-1-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1","41-030-00-10-1-1"],"Person1.x":["edwin givara","edwin givara","edwin givara","edwin givara","edwin givara","abisai alas","abisai alas","abisai alas","abisai alas","abisai alas"],"Person1.y":["edwin gvelarai","ida perez","david hernandez","jerimas polanco","randy cal","edwin gvelarai","ida perez","david hernandez","jerimas polanco","randy cal"]},"columns":[{"accessor":"ed","name":"ed","type":"character"},{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Person1.x"]},{"name":"Census","columns":["Person1.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"9e1e73ea64b3dcf43233e8bc709dc9d1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="scoring-pairs-1" class="level4">
 <h4 class="anchored" data-anchor-id="scoring-pairs-1">2. Scoring pairs</h4>
-<p>The scoring of the PES-Census pairs was very similar to the the Level-1 scoring. The names of the first five household members were compared in each PES-Census pair, and a similarity score was obtained using the Jaro-Winkler method.</p>
+<p>The scoring of the PES-Census pairs was very similar to the the Stage-1 scoring. The names of the first five household members were compared in each PES-Census pair, and a similarity score was obtained using the Jaro-Winkler method.</p>
 <p>Each of these scores was saved in its own variable/column.</p>
 </section>
 <section id="selecting-matches-1" class="level4">
 <h4 class="anchored" data-anchor-id="selecting-matches-1">3. Selecting matches</h4>
-<p>In Level-1 matching, before we even looked at the member names, we already knew that we were comparing households in the same exact physical/geographic location. Any discovered similarity between member names could immediately determine the pair of households to be a true match.</p>
-<p>Now, we have more than just 1 pair of PES-Census households per geographic point. We have M pairs of households for every PES household, where M is the number of unmatched Census households in a given ED. How do we select THE true matching pair among these M pairs?</p>
+<p>In Stage-1 matching, before we even looked at the member names, we already knew that we were comparing households in the same exact physical/geographic location. Any discovered similarity between member names could immediately determine the pair of households to be a true match.</p>
+<p>Now, we have more than just 1 pair of PES-Census households per geographic poin, given that we have matched an compared each remaining PES household with every remaining Census household in the ED. How do we select THE true matching pair among all these combinations?</p>
 <p>Intuitively, we could simply say that we simply select the pair with the highest sum total of JW similarity scores. Easy, right? Well, there are a few problems with this approach.</p>
 <ol type="1">
 <li>This method would ALWAYS find a match for each PES household, even if there exists no true match in the Census dataset.</li>
@@ -335,11 +396,11 @@ Note
 </ul></li>
 </ol>
 <p>Problem #1 can be partially solved by establishing some sort of minimum threshold to qualify a match, but again this does not solve problem #2. So to avoid getting into developing a complex algorithm to tackle these issues, we might rather decide to use a proven machine-learning algorithm.</p>
-<p>For Level-2 matching, I selected a <strong>Random Forest machine-learning algorithm</strong> for selecting matches. I will not get into the details of model, selection and evaluation, but I will mention that a logistic regression model was also evaluated but proved to be less accurate than the random forest model.</p>
+<p>For Stage-2 matching, I selected a <strong>Random Forest machine-learning algorithm</strong> for selecting matches. I will not get into the details of model, selection and evaluation, but I will mention that a logistic regression model was also evaluated but proved to be less accurate than the random forest model.</p>
 <p>A simplified summary of the procedure:</p>
 <ol type="1">
 <li><p>The random forest model was built using the following formula: <code>y = score_p1 + score_p2 + score_p3 + score_p4 + score_p5</code> where y is the match status (Match/NonMatch) and score_p<em>n</em> are the JW scores obtained during scoring.</p></li>
-<li><p>The model was trained using the high-confidence matches from Level-1.</p>
+<li><p>The model was trained using the high-confidence matches from Stage-1.</p>
 <ul>
 <li>Side-note: this is why we appended the ‘match’ and ‘confidence’ columns to our PES and Census datasets during the Merging step.</li>
 </ul></li>
@@ -349,8 +410,193 @@ Note
 </section>
 <section id="results-1" class="level3">
 <h3 class="anchored" data-anchor-id="results-1">Results</h3>
-<p>Hehe</p>
+<p>A total of 932 household-pairs were matched during Stage-2 matching. This accounts for 24.9% of the set of 3739 PES unmatched respondent households.</p>
+<p>The table below shows a random sample of 6 matches resulting from the Random Forest approach. We can see that most seem to be true matches, with perhaps 1 being questionable (Luis Garcia). We also note, by looking at the household IDs, that the households seem to be physically close to each other. This demonstrates that this approach finds matching households even when there was a discrepancy in their building/dwelling/household numbers within the ED.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-2be45d3c0871d884cf33" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2be45d3c0871d884cf33">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"pes__id":["32-014-00-58-1-1","49-002-00-122-1-1","32-004-00-109-1-1","39-059-00-46-1-1","59-051-00-12-1-1","49-069-00-283.001-1-1"],"Person1.x":["tessa zuniga","ricoberto palencia","blanco robles","nathaniel wade","delbert garcia jr.","george romine"],"Person2.x":["tj flowers","rutilia palencia","christian robles","natalie wade","leona vasquez","dorla romine"],"census__id":["32-014-00-87-1-1","49-002-00-123-1-1","32-004-00-127-2-1","39-059-00-46-2-1","59-051-00-129-1-1","49-069-00-284-1-1"],"Person1.y":["tessa zuniga","rigoberto palencia","normandina flores","nathaniel wade","delbert garcia","goerge romine"],"Person2.y":["teejay flowers","rutilia palencia","cristian flores",null,"adette garcia","darla romine"]},"columns":[{"accessor":"pes__id","name":"pes__id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"census__id","name":"census__id","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["pes__id","Person1.x","Person2.x"]},{"name":"Census","columns":["census__id","Person1.y","Person2.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"a03bd097fd4e2f1263aaec35271805d1"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>The total matches now stood at 4155 PES households, which represents 60% of respondent PES households.</p>
 </section>
+</section>
+<section id="household-matching---stage-3" class="level2">
+<h2 class="anchored" data-anchor-id="household-matching---stage-3">Household Matching - Stage 3</h2>
+<p>Stage-3 matching of was very similar to Stage-2 matching. The same procedures were used merging, scoring, and selecting matches. This means that the Random Forest machine-learning model was used again.</p>
+<p>The main difference in Stage-3 matching is that matching now happened up to the Supervisory Area (SA) level. (NOTE). This means that every remaining unmatched households within a PES ED were compared with all Census households in the corresponding Supervisory Area. We can see now that this would result in a very large number of comparisons, and a large merged dataset.</p>
+<p>The random forest model was used in order to select the final matches.</p>
+<section id="results-2" class="level3">
+<h3 class="anchored" data-anchor-id="results-2">Results</h3>
+<p>A total of 243 matches were found at Stage-3 matching. However, it is worth noting that at this stage, matching has become somewhat inaccurate and prone to error. This is due to the fact that every household is being compared to so many other households, that false positive matches (based on member names) are bound to exist.</p>
+<p>To mitigate this, a manual verification and unmatching mechanism was created within the PES Web Dashboard that was created for PES operations. After the manual verification step, around 211 matches remained.</p>
+<p>A random sample of 8 Stage-3 matches are shown below, illustrating the usefulness of our technique.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-9ddda15ae1f231728345" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9ddda15ae1f231728345">{"x":{"tag":{"name":"Reactable","attribs":{"data":{".rownames":["176","33","44","22","117","106","190","128"],"pes__id":["29-045-00-87-1-1","31-024-00-3-2-1","69-014-00-216-1-1","39-071-00-31-2-1","31-018-00-42-1-1","69-058-00-311-1-1","29-045-00-70.001-1-1","49-100-00-121.001-1-1"],"Person1.x":["martin ewan","isla riverol","melsie cal","ralph moody","salvador awe","emilio cho","edward meighan","david choc"],"Person2.x":[null,null,"kevin jackson",null,"julian awe","rebecca cho","gabriella meighan",null],"census__id":["29-046-00-75-1-1","31-018-00-3-2-1","69-013-00-144.001-1-1","39-068-00-196-1-1","31-024-00-42-1-1","69-050-00-83-1-1","29-046-00-8-1-1","49-101-00-20-1-1"],"Person1.y":["martin ewan","isla riverol","melcia cal","ralph moody","salvadar awe","emilio choco","eduard meighan","david cho"],"Person2.y":[null,"nadia riverol","kevin jackson",null,"jillian awe","lorrainia choco","gaberila meighan","justin cho"]},"columns":[{"accessor":".rownames","name":"","type":"character","sortable":false,"filterable":false,"rowHeader":true},{"accessor":"pes__id","name":"pes__id","type":"character"},{"accessor":"Person1.x","name":"Person1.x","type":"character"},{"accessor":"Person2.x","name":"Person2.x","type":"character"},{"accessor":"census__id","name":"census__id","type":"character"},{"accessor":"Person1.y","name":"Person1.y","type":"character"},{"accessor":"Person2.y","name":"Person2.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["pes__id","Person1.x","Person2.x"]},{"name":"Census","columns":["census__id","Person1.y","Person2.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"9369ada162da03b3a247cb32a5c70eb9"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="household-matching-summary" class="level2">
+<h2 class="anchored" data-anchor-id="household-matching-summary">Household matching summary</h2>
+<p>After the three stages of household matching and manual review and verification, here is what we have:</p>
+<ol type="1">
+<li>4,291 PES respondent households were matched to a Census household.
+<ul>
+<li>This represents 61.4% of the 6992 respondent PES households.</li>
+<li>This represents 48.3% of all 8892 listed PES households.</li>
+</ul></li>
+<li>4,210 Census respondent households were matched to a PES household.
+<ul>
+<li>This represents 57.2% of the 7,357 respondent Census households in the PES sampled EDs.</li>
+<li>This represents 48% of the 8770 total listed Census households in the PES sampled EDs.</li>
+</ul></li>
+</ol>
+<p>Of these numbers the 4,291 (61.4%) figure is perhaps the most relevant, since only respondent households had any relevant data that allowed for matching.</p>
+<p>Our PES household respondent dataset starts looking like the simplified example below.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-a76ece69303f0df6a5b5" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a76ece69303f0df6a5b5">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"region":["belmopan","belmopan","belmopan","belmopan","belmopan","belmopan","belmopan","belmopan","belmopan","belmopan"],"ed":["41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00","41-030-00"],"hh_id":["41-030-00-7-1-1","41-030-00-34-1-1","41-030-00-1-1-1","41-030-00-5-1-1","41-030-00-40-1-1","41-030-00-6.001-1-1","41-030-00-6-1-1","41-030-00-4-1-1","41-030-00-10-1-1","41-030-00-3-1-1"],"pes_head":["elizabeth gomez","adrian co","lidia ico","rose castellanos","jose sagastume","maria velasques","evelia castellanos","edwardo ico","abisai alas","anthony ico"],"MATCH_STATUS":["MATCH","MATCH","MATCH","NON-MATCH","MATCH","NON-MATCH","MATCH","MATCH","NON-MATCH","MATCH"]},"columns":[{"accessor":"region","name":"region","type":"character"},{"accessor":"ed","name":"ed","type":"character"},{"accessor":"hh_id","name":"hh_id","type":"character"},{"accessor":"pes_head","name":"pes_head","type":"character"},{"accessor":"MATCH_STATUS","name":"MATCH_STATUS","type":"character","style":[{"background":"#32CD32"},{"background":"#32CD32"},{"background":"#32CD32"},{"background":"#CCCC00"},{"background":"#32CD32"},{"background":"#CCCC00"},{"background":"#32CD32"},{"background":"#32CD32"},{"background":"#CCCC00"},{"background":"#32CD32"}]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"3505cd44db2a34d43c4aa3c813b2d51c"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="individual-matching" class="level1">
+<h1>Individual Matching</h1>
+<p>After household-level matches, we now turn our attentions to the individuals within. The goal is to compare the PES <em>non-movers</em> and <em>out-movers</em> with the Census <em>listed members</em> in order to find individual-level matches and non-matches.</p>
+<p>For Individual-level matching, the following criteria was used (adapted from Mr.&nbsp;Levinson’s guidelines in the Matching Manual):</p>
+<ol type="1">
+<li>The non-movers and out-movers from the PES household are compared with the members listed in the Census household.</li>
+<li>The full names must match, except for spelling variations that do not change pronunciation.</li>
+<li>The ages must be within a close range, which varies according to age-group.
+<ul>
+<li>Mr Levinson suggested the tolerances in the table below.</li>
+</ul></li>
+<li>The following variables should also match:
+<ul>
+<li>Sex</li>
+<li>Country of Birth</li>
+<li>Marital Status</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-a9b5c01e3ee3d79c9d36" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a9b5c01e3ee3d79c9d36">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Age":["under 10","10 - 19","20 - 39","40 - 49","60 +"],"Tolerance":["-2 to +2 years","-3 to +3 years","-5 to +5 years","-7 to +7 years","-10 to +10 years"]},"columns":[{"accessor":"Age","name":"Age","type":"character"},{"accessor":"Tolerance","name":"Tolerance","type":"character"}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"striped":true,"compact":true,"inline":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"f523fac8d8b2ef7a13a6cd390c7c6c73"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<section id="preprocessing-2" class="level2">
+<h2 class="anchored" data-anchor-id="preprocessing-2">Preprocessing</h2>
+<p>The main pre-processing for Individual matching was as follows:</p>
+<ol type="1">
+<li>From the PES and Census individual-level datasets, identify all records that belong to the set of matched households.</li>
+<li>In the PES individual-level dataset, ensure only non-movers and all out-movers are included.</li>
+<li>In-movers (those who joined the household after Census enumeration), and born-afters (babies born after Census enumeration) were identified and given their corresponding matching status at once.</li>
+</ol>
+</section>
+<section id="matching-algorithm-2" class="level2">
+<h2 class="anchored" data-anchor-id="matching-algorithm-2">Matching Algorithm</h2>
+<p>The matching algorithm at the individual level is somewhat simpler than household-level. However, it is also in parts more complex.</p>
+<section id="merging-2" class="level3">
+<h3 class="anchored" data-anchor-id="merging-2">1. Merging</h3>
+<p>The first thing we need to know is that we need to compare every eligible PES individual with every listed Census individual. Therefore our merge should achieve this. This is illustrated in the simplified example table below.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-b3c363afb6a2e07393f7" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b3c363afb6a2e07393f7">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"match_id":[3,3,3,3,3,3,3,3,3,3,3,3],"Name.x":["Lidia Ico","Lidia Ico","Lidia Ico","Edwin Givara","Edwin Givara","Edwin Givara","Javier Cal","Javier Cal","Javier Cal","Byron Cal","Byron Cal","Byron Cal"],"Age.x":[35,35,35,38,38,38,16,16,16,15,15,15],"Sex.x":["Female","Female","Female","Male","Male","Male","Male","Male","Male","Male","Male","Male"],"Name.y":["Lydia Ico","Edwin Gvelarai","byron cal","Lydia Ico","Edwin Gvelarai","byron cal","Lydia Ico","Edwin Gvelarai","byron cal","Lydia Ico","Edwin Gvelarai","byron cal"],"Age.y":[34,37,13,34,37,13,34,37,13,34,37,13],"Sex.y":["Female","Male","Male","Female","Male","Male","Female","Male","Male","Female","Male","Male"]},"columns":[{"accessor":"match_id","name":"match_id","type":"numeric"},{"accessor":"Name.x","name":"Name.x","type":"character"},{"accessor":"Age.x","name":"Age.x","type":"numeric"},{"accessor":"Sex.x","name":"Sex.x","type":"character"},{"accessor":"Name.y","name":"Name.y","type":"character"},{"accessor":"Age.y","name":"Age.y","type":"numeric"},{"accessor":"Sex.y","name":"Sex.y","type":"character"}],"columnGroups":[{"name":"PES","columns":["Name.x","Age.x","Sex.x"]},{"name":"Census","columns":["Name.y","Age.y","Sex.y"]}],"defaultPageSize":12,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"d715d63043a8a9f5dc042f49dadd1982"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>In the example above, we see that four PES household members are compared each with the three Census household members. The subsequent steps will compare records and establishes matches.</p>
+</section>
+<section id="scoring-pairs-2" class="level3">
+<h3 class="anchored" data-anchor-id="scoring-pairs-2">2. Scoring Pairs</h3>
+<p>The scoring of individual-pairs was implemented based on the individual-matching guidelines outlined in the previous sections. However, a few additional enhancements were made in an attempt to improve the quality of matching. For example, weights were given to each comparison variable, given that some were more important than others.</p>
+<p>The scoring algorithm is summarized as follows:</p>
+<ol type="1">
+<li>The full names were compared using the Jaro-Winkler algorithm that was used and explained in the household-matching section.</li>
+<li>The ages were compared using a variation of the tolerances ranges suggested by Mr.&nbsp;Levinson.</li>
+<li>Sex, country of birth, and marital status were compared strictly: they either matched exactly or not at all.</li>
+</ol>
+<p>Recognizing that not all variables should hold the same weight when scoring individual-pairs, weights were developed for each variable. Additionally, weights were developed for both a comparison <em>success</em> or <em>failure</em>. To understand this, consider the variable <strong>sex</strong>:</p>
+<ul>
+<li><p>Any two records have a probability of ~50% to match successfuly on <strong>sex</strong>, even if they do not belong to the same individual (because we only have two main categories for sex). Therefore, the <em>success</em> weight for the variable sex should be relatively small.</p></li>
+<li><p>However, if two records <strong>do not match</strong> on sex, then it is very likely that they records <strong>do not</strong> correspond to the same individual. Therefore, the <em>failure</em> weight for sex should be relatively large.</p></li>
+</ul>
+<p>The determination of the success and failure weights for each variable was a mostly arbitrary decision using own judgement. (NOTE) These can certainly be refined and adjusted in the future. The weights were as follows:</p>
+<ol type="1">
+<li>Name
+<ul>
+<li>success weight: 3</li>
+<li>failure weight: -1</li>
+</ul></li>
+<li>Sex
+<ul>
+<li>success weight: 0.5</li>
+<li>failure weight: -2</li>
+</ul></li>
+<li>Age
+<ul>
+<li>success weight: 2.5</li>
+<li>failure weight: -1</li>
+</ul></li>
+<li>Marital status
+<ul>
+<li>success weight: 1</li>
+<li>failure weight: 1</li>
+</ul></li>
+<li>Country of birth
+<ul>
+<li>success weight: 2</li>
+<li>failure weight: -0.5</li>
+</ul></li>
+</ol>
+</section>
+<section id="selecting-matches-2" class="level3">
+<h3 class="anchored" data-anchor-id="selecting-matches-2">3. Selecting Matches</h3>
+<p>Matches were determined based on the scoring and weighting explained in the previous section.</p>
+<ol type="1">
+<li>First, a total score was developed for each individual-pair comparison, taking into consideration the positive and negative weights for each variable.</li>
+<li>A total score threshold was established as the cut-off point for accepting or rejecting matches.
+<ul>
+<li>After experimenting a while, the threshold was established at +4.5</li>
+</ul></li>
+<li>Individual-pairs that passed the threshold were likely to belong to the same individual, and were selected as a <strong>MATCH</strong>.</li>
+<li>In the case where multiple individual-pairs passed the threshold, the pair with the highest score was selected as the <strong>MATCH</strong>.</li>
+<li>At the end of the day, each PES individual had one of the following match statuses:
+<ul>
+<li>MATCH</li>
+<li>NON-MATCH</li>
+<li>IN-MOVER</li>
+<li>BORN-AFTER</li>
+</ul></li>
+<li>Similarly, each Census individual had one of the following match statuses:
+<ul>
+<li>MATCH</li>
+<li>NON-MATCH</li>
+</ul></li>
+</ol>
+<p>To illustrate the result of individual-level matching, we return to the example (household with match_id 3) that we showed earlier. Now, we have completed the individual-level matching, as shown in the simplified table below.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div id="htmlwidget-6a16bad5ee74dee349f0" class="reactable html-widget" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-6a16bad5ee74dee349f0">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Name.x":["Lidia Ico","Edwin Givara","Javier Cal","Byron Cal"],"Age.x":[35,38,16,15],"Sex.x":["Female","Male","Male","Male"],"Name.y":["Lydia Ico","Edwin Gvelarai",null,"byron cal"],"Age.y":[34,37,"NA",13],"Sex.y":["Female","Male",null,"Male"],"match_status":["MATCH","MATCH","NON-MATCH","MATCH"]},"columns":[{"accessor":"Name.x","name":"Name.x","type":"character"},{"accessor":"Age.x","name":"Age.x","type":"numeric"},{"accessor":"Sex.x","name":"Sex.x","type":"character"},{"accessor":"Name.y","name":"Name.y","type":"character"},{"accessor":"Age.y","name":"Age.y","type":"numeric"},{"accessor":"Sex.y","name":"Sex.y","type":"character"},{"accessor":"match_status","name":"match_status","type":"character","style":[{"background":"#32CD32"},{"background":"#32CD32"},{"background":"#CCCC00"},{"background":"#32CD32"}]}],"columnGroups":[{"name":"PES","columns":["Name.x","Age.x","Sex.x"]},{"name":"Census","columns":["Name.y","Age.y","Sex.y"]}],"defaultPageSize":10,"paginationType":"numbers","showPageInfo":true,"minRows":1,"highlight":true,"striped":true,"theme":{"color":"#36454F","backgroundColor":"#ffffff","borderWidth":"0px","stripedColor":"#f9f9fb","highlightColor":"#f1f3f4","cellPadding":7,"tableStyle":{"fontSize":15},"headerStyle":{"borderWidth":"1px","padding":"7px","borderTop":"1px solid #595d63","backgroundColor":"#595d63","textTransform":"uppercase","borderColor":"#595d63","color":"#ffffff","transitionDuration":"0.1s","&:hover[aria-sort]":{"backgroundColor":"#4d5056","color":"#ffffff"},"&[aria-sort='ascending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 3px 0 0 #ffffff"},"&[aria-sort='descending']":{"backgroundColor":"#393c40","color":"#ffffff","boxShadow":"inset 0 -3px 0 0 #ffffff"},"fontSize":12,"fontWeight":"bold"},"groupHeaderStyle":{"&:not(:empty)":{"backgroundColor":"#e4e8ed","textTransform":"uppercase","fontWeight":"bold","color":"#36454F","fontSize":12,"boxShadow":"inset 3px 0 0 0 #ffffff"}},"rowSelectedStyle":{"backgroundColor":"#e4e8ed"},"inputStyle":{"backgroundColor":"#ffffff","color":"#878e94"},"searchInputStyle":{"fontSize":"14px","textTransform":"uppercase","backgroundColor":"#ffffff","color":"#878e94","&:focus":{"color":"#878e94"}},"selectStyle":{"backgroundColor":"#073c57","color":"#ffffff","borderColor":"#ffffff","outlineColor":"#ffffff"},"paginationStyle":{"textTransform":"uppercase","fontSize":"15px"},"pageButtonStyle":{"textTransform":"uppercase","fontSize":"15px","backgroundColor":"#ffffff","color":"#164861","&:hover":{"backgroundColor":"#052c3f","color":"#ffffff"}},"pageButtonHoverStyle":{"backgroundColor":"#052c3f","color":"#ffffff"},"pageButtonActiveStyle":{"backgroundColor":"#073c57","color":"#ffffff"},"pageButtonCurrentStyle":{"backgroundColor":"#073c57","color":"#ffffff"}},"dataKey":"3dd06df2f28ddff589f6326e21ce6df6"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="next-steps" class="level1">
+<h1>Next Steps</h1>
+<p>This document, as long as it is, is a summary of the PES household and individual matching processes. This is only a part of the PES process. After this matching was done, the necessary preparations and execution relating to the <strong>reconciliation visits</strong> were carried out. A separate document might be created to explain that topic.</p>
 </section>
 
 </main>
